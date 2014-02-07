@@ -28,10 +28,10 @@ class Application(Frame):
 		if (data != ""):
 			processed_data = data.split(",")
 
-			self.temp_data.set("Temperature: " + str(processed_data[0]) + " °C")
+			self.temp_data.set("Temperature: " + str(processed_data[0]))
 			self.temperature.pack()
 
-			self.hum_data.set("Humidity: " + str(processed_data[1]) + " %")
+			self.hum_data.set("Humidity: " + str(processed_data[1]))
 			self.humidity.pack()
 
 		# Wait 1 second between each measurement
