@@ -10,7 +10,7 @@ serial_speed = 115200
 serial_port = '/dev/cu.AdafruitEZ-Link06d5-SPP'
 
 # Test with USB-Serial connection
-# serial_port = '/dev/tty.usbmodem1411'
+# serial_port = '/dev/tty.usbmodem1421'
 
 ser = serial.Serial(serial_port, serial_speed, timeout=1)
 
@@ -28,10 +28,10 @@ class Application(Frame):
 		if (data != ""):
 			processed_data = data.split(",")
 
-			self.temp_data.set("Temperature: " + str(processed_data[0]))
+			self.temp_data.set("Temperature: " + str(processed_data[0]) + " °C")
 			self.temperature.pack()
 
-			self.hum_data.set("Humidity: " + str(processed_data[1]))
+			self.hum_data.set("Humidity: " + str(processed_data[1]) + " %")
 			self.humidity.pack()
 
 		# Wait 1 second between each measurement

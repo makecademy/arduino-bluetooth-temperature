@@ -1,11 +1,12 @@
 // Bluetooth temperature sensor
 #include "DHT.h"
 
-// Pin for the DHT11 sensor
+// Pin for the DHT sensor
 #define DHTPIN 7    
-#define DHTTYPE DHT11
+#define DHTTYPE DHT22
+// #define DHTTYPE DHT11
 
-// Create instance for the DHT11 sensor
+// Create instance for the DHT sensor
 DHT dht(DHTPIN, DHTTYPE);
 
 // Setup
@@ -27,12 +28,14 @@ void loop(void)
       // If a measurement is required, measure data and send it back
       if (c == 'm'){
         
-          int h = (int)dht.readHumidity();
-          int t = (int)dht.readTemperature();
-        
+          float h = dht.readHumidity();
+          float t = dht.readTemperature();
+          
           // Send data (temperature,humidity)
-          Serial.println(String(t) + "," + String(h));
-      
+          Serial.print(t);
+          Serial.print(",");
+          Serial.println(h);
+                        
       }
    
   }
